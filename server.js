@@ -41,7 +41,7 @@ app.get('/items', async (req, res) => {
   }
 });
 
-app.get('/items/:id', async (req, res) => {
+app.get ('/items/:id', async (req, res) => {
   const itemId = req.params.id;
   try {
     const results = await db('fooditems').where('id', itemId);
@@ -100,7 +100,7 @@ app.delete('/items/:id', async (req, res) => {
 });
 
 function main() {
-  app.listen(port, () => {
+  app.listen(process.env.PORT || port, () => {
     console.log(`Server is running on port ${port}`);
   });
 }
