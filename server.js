@@ -1,18 +1,18 @@
 const express = require('express');
 const mysql = require('mysql');
 const knex = require('knex'); 
-
+require("dotenv").config();
 const app = express();
 const port = 3000;
 
 const db = knex({
   client: 'mysql',
   connection: {
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'adjkadh34@fS',
-    database: 'savefood',
-    port: '3306'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT
   }
 });
 
